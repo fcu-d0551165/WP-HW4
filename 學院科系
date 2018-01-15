@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html><body>
+<h2>�п�ܾǰ|</h2>
+<select id ="college-list" onchange="collegeChange()">
+</select>
+
+<h2>�п�ܬ�t</h2>
+<select id ="dept-list"></select>
+<p id = "demo"></p>
+
+<script>
+var select = ["�Х���ܾǰ|"];
+var colleges = ["�п��","�Ӿǰ|","�u�ǰ|","�س]�ǰ|"];
+var businessDepts = ["�п��","�|�p�Ǩt","��ڸg��P�T���Ǩt","��ڸg��P�T���Ǩt��ڥ��~�޲z���^�y�Ǥh�Z","�]�|�Ǩt",
+				"�X�@�g�ٺ[���|�Ʒ~�g��Ǩt","�έp�Ǩt","�g�پǨt","���~�޲z�Ǩt","��P�Ǩt","��ڥ��~�޲z�Ǥh�Ǧ�ǵ{(�^�y�M�Z)",
+				"�ӾǶi�׾Ǥh�Ǧ�ǵ{","�]�g�k�߬�s��","��޺޲z�Ӥh�Ǧ�ǵ{","���~�Ӥh�M�Z","�ӾǱM�~�Ӥh�b¾�Ǧ�ǵ{","�Ӿǳդh�Ǧ�ǵ{"];
+				
+var engineeringDepts =["�п��","����P�q�����U�u�{�Ǩt","�ֺ��P�ƦX���ƾǨt","�u�~�u�{�P�t�κ޲z�Ǩt","�ƾǤu�{�Ǩt","��ӻP�t�Τu�{�Ǩt",
+"��K�t�γ]�p�Ǥh�Ǧ�ǵ{","�q�n�Ӥh�Ǧ�ǵ{","���෽��޺Ӥh�Ǧ�ǵ{","�зN�]�p�Ӥh�Ǧ�ǵ{","���ƻP�s�y�u�{�Ӥh�b¾�M�Z",
+"����s�y�P�u�{�޲z�Ӥh�b¾�Ǧ�ǵ{","����P��Ťu�{�դh�Ǧ�ǵ{"];
+
+var archDepts=["�п��","�g��u�{�Ǩt","���Q�u�{�P�귽�O�|�Ǩt","�����p�e�P�Ŷ���T�Ǩt","�B��P���y�Ǩt","�g�a�޲z�Ǩt","���[�P�C�ͺӤh�Ǧ�ǵ{",
+"�M�׺޲z�Ӥh�b¾�Ǧ�ǵ{","�س]�Ӥh�b¾�Ǧ�ǵ{","�g����Q�u�{�P�س]�W���դh�Ǧ�ǵ{"]; 
+
+var collegeElm = document.getElementById("college-list");
+var deptElm= document.getElementById("dept-list");
+
+populateData(collegeElm, colleges);
+
+function collegeChange(){
+     var selIndex = collegeElm.options[collegeElm.selectedIndex].value;
+	 switch(selIndex){
+		case "0":
+			populateData(deptElm,select);
+			break;
+	    case "1":
+		    populateData(deptElm,businessDepts);
+			break;
+		case "2":
+		    populateData(deptElm,engineeringDepts);
+			break;
+	    case "3":
+		    populateData(deptElm,archDepts);
+			break;
+		default:
+		    console.log("Not Accept!");
+	 }
+}
+
+function populateData(collegeElm, colleges){
+var options = "";
+for(var i=0;i< colleges.length;i++){
+   options = options + '<option value="'+i+'">'+ colleges[i]
+   }
+ collegeElm.innerHTML = options;
+}
+</script>
+</body></html>
